@@ -16,6 +16,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    //initialize dataBinding
     buildFeatures {
         //noinspection DataBindingWithoutKapt
         dataBinding true

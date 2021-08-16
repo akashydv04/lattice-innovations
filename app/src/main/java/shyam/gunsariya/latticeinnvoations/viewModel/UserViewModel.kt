@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 
 class UserViewModel: ViewModel(){
 
+    //view model class
+
     private val _mobile_number = MutableLiveData<String>()
     val mobile_number : LiveData<String> = _mobile_number
     private val _full_name = MutableLiveData<String>()

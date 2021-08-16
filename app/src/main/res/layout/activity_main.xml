@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
+<!--    fragment container creating application one activity based using nav graph-->
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_container"
         android:layout_width="match_parent"

@@ -5,6 +5,7 @@
     tools:context=".RegistrationForm">
 
     <data>
+<!--        view model for MVVM functionality-->
         <variable
             name="viewModel"
             type="shyam.gunsariya.latticeinnvoations.viewModel.UserViewModel" />
@@ -30,6 +31,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
+<!--                set data from data binding -->
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

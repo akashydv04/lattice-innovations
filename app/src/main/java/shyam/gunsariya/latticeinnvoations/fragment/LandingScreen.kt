@@ -15,6 +15,8 @@ import shyam.gunsariya.latticeinnvoations.viewModel.UserViewModel
 
 class LandingScreen : Fragment() {
 
+    //fragment binding data and initialize view model
+
     private var binding: FragmentLandingScreenBinding? = null
     private val sharedViewModel: UserViewModel by activityViewModels()
 
@@ -32,6 +34,8 @@ class LandingScreen : Fragment() {
         binding?.landingScreen = this
     }
 
+    //register function
+
     fun goToRegister(){
         if (binding?.mobileNumEdt?.text.toString() == "" || binding?.mobileNumEdt?.text.toString().length < 10 || binding?.mobileNumEdt?.text.toString().length > 10){
             Log.d("TAG", "Check Your Number Again"+binding?.mobileNumEdt?.text.toString().length)
@@ -39,6 +43,7 @@ class LandingScreen : Fragment() {
         else{
             sharedViewModel.setMobileNumber(binding?.mobileNumEdt?.text.toString())
             findNavController().navigate(R.id.action_landingScreen_to_registrationForm, null,
+//                pop up back stack user can't go back
                 NavOptions.Builder().setPopUpTo(R.id.landingScreen, true).build())
 
         }
