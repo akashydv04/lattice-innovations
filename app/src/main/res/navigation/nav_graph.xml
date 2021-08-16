@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/landingScreen">
+
+    <fragment
+        android:id="@+id/landingScreen"
+        android:name="shyam.gunsariya.latticeinnvoations.fragment.LandingScreen"
+        android:label="Landing Screen"
+        tools:layout="@layout/fragment_landing_screen" >
+        <action
+            android:id="@+id/action_landingScreen_to_registrationForm"
+            app:destination="@id/registrationForm" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationForm"
+        android:name="shyam.gunsariya.latticeinnvoations.fragment.RegistrationForm"
+        android:label="Register"
+        tools:layout="@layout/fragment_registration_form" >
+        <action
+            android:id="@+id/action_registrationForm_to_weatherInfo"
+            app:destination="@id/weatherInfo" />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherInfo"
+        android:name="shyam.gunsariya.latticeinnvoations.fragment.WeatherInfo"
+        android:label="Weather Today"
+        tools:layout="@layout/fragment_weather_info" >
+        <action
+            android:id="@+id/action_weatherInfo_to_viewProfile"
+            app:destination="@id/viewProfile" />
+        <action
+            android:id="@+id/action_weatherInfo_to_landingScreen"
+            app:destination="@id/landingScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewProfile"
+        android:name="shyam.gunsariya.latticeinnvoations.fragment.ViewProfile"
+        android:label="View Profile"
+        tools:layout="@layout/fragment_view_profile" />
+</navigation>
