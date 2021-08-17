@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_landingScreen_to_registrationForm"
             app:destination="@id/registrationForm" />
+        <action
+            android:id="@+id/action_landingScreen_to_weatherInfo"
+            app:destination="@id/weatherInfo" />
     </fragment>
     <fragment
         android:id="@+id/registrationForm"

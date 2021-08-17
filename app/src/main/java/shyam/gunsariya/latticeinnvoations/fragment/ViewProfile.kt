@@ -1,6 +1,8 @@
 package shyam.gunsariya.latticeinnvoations.fragment
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,7 +27,7 @@ class ViewProfile : Fragment() {
         return fragmentBinding.root
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "CommitPrefEdits")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -35,9 +37,16 @@ class ViewProfile : Fragment() {
             myProfile = this@ViewProfile
         }
 
-        binding?.genderAgeTxt?.text = shareViewModel.genDer.value.toString()+", "+shareViewModel.age.value.toString()+" Years"
-        binding?.addressTxt?.text = shareViewModel.addLineOne.value.toString()+", "+shareViewModel.addLineTwo.value.toString()
-        binding?.statePincodeTxt?.text = shareViewModel.stAte.value.toString()+", "+shareViewModel.pinCode.value.toString()
+        val sharedPreference: SharedPreferences = requireActivity().getSharedPreferences("lattice", Context.MODE_PRIVATE)
+        val fullname = sharedPreference.getString("full_name","")
+        val line2 = sharedPreference.getString("gender","")+", "+sharedPreference.getString("age","")+" Years"
+        val line3 = sharedPreference.getString("address_1","")+", "+sharedPreference.getString("address_2","")
+        val line4 = sharedPreference.getString("state","")+", "+sharedPreference.getString("pincode","")
+
+        binding?.fullNameTxt?.text = fullname
+        binding?.genderAgeTxt?.text = line2
+        binding?.addressTxt?.text = line3
+        binding?.statePincodeTxt?.text = line4
     }
 
 }

@@ -1,5 +1,7 @@
 package shyam.gunsariya.latticeinnvoations.fragment
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -152,6 +154,12 @@ class WeatherInfo : Fragment() {
                 true
             }
             R.id.logout->{
+                val sharedPreference: SharedPreferences = requireActivity().getSharedPreferences("lattice", Context.MODE_PRIVATE)
+                val sharedEdit = sharedPreference.edit()
+
+                sharedEdit.clear()
+                sharedEdit.apply()
+
                 findNavController().navigate(R.id.action_weatherInfo_to_landingScreen,null,
                     NavOptions.Builder().setPopUpTo(R.id.weatherInfo, true).build())
                 true

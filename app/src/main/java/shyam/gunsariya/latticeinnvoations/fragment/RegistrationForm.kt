@@ -2,6 +2,8 @@ package shyam.gunsariya.latticeinnvoations.fragment
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
@@ -99,8 +101,11 @@ class RegistrationForm : Fragment() {
                     LocalDate.of(year, months, dayOfMonth),
                     LocalDate.now()
                 ).years
-
+                val sharedPreference: SharedPreferences = requireActivity().getSharedPreferences("lattice", Context.MODE_PRIVATE)
+                val sharedEdit = sharedPreference.edit()
                 sharedViewModel.setAge(age.toString())
+                sharedEdit.putString("age", age.toString())
+                sharedEdit.apply()
             },y,m,d)
         datePicker.show()
 
@@ -128,6 +133,18 @@ class RegistrationForm : Fragment() {
                     binding?.districtEdt?.text.toString(),
                     binding?.stateEdt?.text.toString()
                 )
+                val sharedPreference: SharedPreferences = requireActivity().getSharedPreferences("lattice", Context.MODE_PRIVATE)
+                val sharedEdit = sharedPreference.edit()
+                sharedEdit.putString("full_name", binding?.fullNameEdt?.text.toString())
+                sharedEdit.putString("gender", binding?.genderEdt?.selectedItem.toString())
+                sharedEdit.putString("dob", binding?.dobEdt?.text.toString())
+                sharedEdit.putString("address_1", binding?.addressLine1Edt?.text.toString())
+                sharedEdit.putString("address_2", binding?.addressLine2Edt?.text.toString())
+                sharedEdit.putString("pincode", binding?.pincodeEdt?.text.toString())
+                sharedEdit.putString("district", binding?.districtEdt?.text.toString())
+                sharedEdit.putString("state", binding?.stateEdt?.text.toString())
+                sharedEdit.apply()
+
                 findNavController().navigate(R.id.action_registrationForm_to_weatherInfo,null,
                     NavOptions.Builder().setPopUpTo(R.id.registrationForm, true).build())
             }

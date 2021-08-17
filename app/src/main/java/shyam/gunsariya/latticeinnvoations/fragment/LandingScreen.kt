@@ -1,5 +1,8 @@
 package shyam.gunsariya.latticeinnvoations.fragment
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -42,10 +45,27 @@ class LandingScreen : Fragment() {
         }
         else{
             sharedViewModel.setMobileNumber(binding?.mobileNumEdt?.text.toString())
+            val sharedPreference: SharedPreferences = requireActivity().getSharedPreferences("lattice", Context.MODE_PRIVATE)
+            val sharedEdit = sharedPreference.edit()
+            sharedEdit.putString("mobile", binding?.mobileNumEdt?.text.toString())
+            sharedEdit.apply()
             findNavController().navigate(R.id.action_landingScreen_to_registrationForm, null,
 //                pop up back stack user can't go back
                 NavOptions.Builder().setPopUpTo(R.id.landingScreen, true).build())
 
+        }
+    }
+
+    @SuppressLint("CommitPrefEdits")
+    override fun onStart() {
+        super.onStart()
+        val sharedPreference: SharedPreferences = requireActivity().getSharedPreferences("lattice", Context.MODE_PRIVATE)
+        var sharedEdit = sharedPreference.edit()
+        val fullname = sharedPreference.getString("full_name","")
+
+        if (fullname != ""){
+            findNavController().navigate(R.id.action_landingScreen_to_weatherInfo, null,
+                NavOptions.Builder().setPopUpTo(R.id.landingScreen, true).build())
         }
     }
 }
