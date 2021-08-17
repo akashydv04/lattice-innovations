@@ -38,12 +38,12 @@ class ViewProfile : Fragment() {
         }
 
         val sharedPreference: SharedPreferences = requireActivity().getSharedPreferences("lattice", Context.MODE_PRIVATE)
-        val fullname = sharedPreference.getString("full_name","")
+        val fullName = sharedPreference.getString("fullname","")
         val line2 = sharedPreference.getString("gender","")+", "+sharedPreference.getString("age","")+" Years"
         val line3 = sharedPreference.getString("address_1","")+", "+sharedPreference.getString("address_2","")
         val line4 = sharedPreference.getString("state","")+", "+sharedPreference.getString("pincode","")
 
-        binding?.fullNameTxt?.text = fullname
+        binding?.fullNameTxt?.text = fullName
         binding?.genderAgeTxt?.text = line2
         binding?.addressTxt?.text = line3
         binding?.statePincodeTxt?.text = line4

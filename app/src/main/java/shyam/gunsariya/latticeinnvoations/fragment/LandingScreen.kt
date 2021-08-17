@@ -60,8 +60,7 @@ class LandingScreen : Fragment() {
     override fun onStart() {
         super.onStart()
         val sharedPreference: SharedPreferences = requireActivity().getSharedPreferences("lattice", Context.MODE_PRIVATE)
-        var sharedEdit = sharedPreference.edit()
-        val fullname = sharedPreference.getString("full_name","")
+        val fullname = sharedPreference.getString("fullname","")
 
         if (fullname != ""){
             findNavController().navigate(R.id.action_landingScreen_to_weatherInfo, null,

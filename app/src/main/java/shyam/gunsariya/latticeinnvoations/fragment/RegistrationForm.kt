@@ -135,7 +135,7 @@ class RegistrationForm : Fragment() {
                 )
                 val sharedPreference: SharedPreferences = requireActivity().getSharedPreferences("lattice", Context.MODE_PRIVATE)
                 val sharedEdit = sharedPreference.edit()
-                sharedEdit.putString("full_name", binding?.fullNameEdt?.text.toString())
+                sharedEdit.putString("fullname", binding?.fullNameEdt?.text.toString())
                 sharedEdit.putString("gender", binding?.genderEdt?.selectedItem.toString())
                 sharedEdit.putString("dob", binding?.dobEdt?.text.toString())
                 sharedEdit.putString("address_1", binding?.addressLine1Edt?.text.toString())

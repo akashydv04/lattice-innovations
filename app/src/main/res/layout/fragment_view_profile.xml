@@ -24,8 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:textSize="18sp"
-            android:text="@{viewModel.full_name.toString()}"/>
+            android:textSize="18sp"/>
         <TextView
             android:id="@+id/genderAgeTxt"
             android:layout_width="match_parent"
